@@ -4,7 +4,7 @@ Private library of reusable Claude skills. One folder per skill under `skills/`,
 
 | Skill | Use it for |
 | --- | --- |
-| `competitor-report` | Single-competitor profile report in the standard 15-section format with nine charts, BDC scorecard, sentiment tally and sourced funding timeline |
+| `competitor-report` | Single-competitor profile report in the standard 15-section format with nine charts, BDC scorecard, sentiment tally and sourced funding timeline, written in ASD-STE100 |
 
 ## Adding a skill
 1. Create `skills/<skill-name>/SKILL.md`.

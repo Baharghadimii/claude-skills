@@ -1,6 +1,6 @@
 ---
 name: competitor-report
-description: Build a single-competitor profile report (crypto/AI-agent protocol or any tech company) in our standard 15-section format with charts, scorecard, sentiment and sourced funding timeline. Use when asked for a competitor report, competitor profile, or competitive analysis of one named company or protocol.
+description: Build a single-competitor profile report (crypto/AI-agent protocol or any tech company) in our standard 15-section format with charts, scorecard, sentiment and sourced funding timeline, written in ASD-STE100 Simplified Technical English. Use when asked for a competitor report, competitor profile, or competitive analysis of one named company or protocol.
 ---
 
 # Competitor report (single-company profile)
@@ -11,6 +11,7 @@ Produce one report per competitor, in a doc (or a markdown file when no doc tool
 - Competitor name and canonical URLs (site, docs, GitHub, token page).
 - Snapshot date (default: today) and the reader (internal team, investors, board).
 - Whether to include a "your project" column (default: no).
+- Language: ASD-STE100 Simplified Technical English (default). Use standard business English only when the user asks for it.
 
 ## Workflow
 1. Create the doc skeleton first (title, byline with as-of date, one pending block per section below), open it, then fill one section per write.
@@ -48,6 +49,43 @@ Produce one report per competitor, in a doc (or a markdown file when no doc tool
 14. **Implications for a competing project** — Learn from / Avoid / Exploit (numbered) and Triggers to watch (bullets).
 15. **Appendices** — A. data conflicts and gaps table (item · conflict · handling); B. glossary; C. sources grouped (primary, market data, funding, press, market context); D. changelog table.
 
+## Language: ASD-STE100 Simplified Technical English (default)
+Write all text in ASD-STE100 (Simplified Technical English): prose, table cells, chart titles, subtitles, labels, captions and notes. Facts, figures, names and links do not change.
+
+**Sentences**
+- Maximum 25 words in a descriptive sentence; maximum 20 words in an instruction.
+- One topic in each sentence. Split a long sentence into two or more sentences.
+- Maximum 6 sentences in a paragraph; one topic in each paragraph.
+- A list of more than three items with details: write a short sentence to introduce it, then use a bullet list or short sentences ("Q1 2025: it burned 77.9M OLAS. Q2 2025: ...").
+- Source lists, ticker rankings and table cells that only list names can be longer.
+
+**Verbs and voice**
+- Use the active voice ("The DAO cut emissions", not "Emissions were cut").
+- Use simple tenses: simple present, simple past, simple future. Do not use the -ing form as a verb ("It is moving" → "It moves").
+- Use the imperative for instructions ("Do not copy this design").
+- Do not use phrasal verbs when a simple verb exists ("set up" is acceptable as a technical name; "carry out" → "do").
+
+**Words**
+- Use approved, common words with one meaning ("use" not "utilize", "start" not "commence", "help" not "facilitate", "about" not "approximately").
+- Keep one word for one meaning in the full report (for example, always "daily active agents", not also "active users").
+- Technical names (OLAS, veOLAS, ERC-8004, x402, Proof of Active Agent) are allowed. Define each one in the Glossary.
+- Noun clusters: maximum three words ("agent transaction count" is OK; "on-chain agent transaction count growth" is not). Use "of" or "for" to break them.
+- Use articles ("the", "a") and "this/these" where they make the meaning clear.
+- No contractions, no "e.g." / "i.e." (write "for example" / "that is"), no "via" (write "through"), no slang or idioms ("rug", "moat" only inside quotes).
+- Do not use "~" for "about" (markdown can show it as strikethrough). Write "about".
+- Avoid the possessive "'s" for things; write "the reach of Olas", "the support channels of Olas".
+
+**Report-specific**
+- Section lead sentence: the point, with a number or a date, in 25 words or fewer. If needed, use two or three short sentences.
+- Quotes from sources stay as written, in quotation marks. Do not rewrite a quote into STE.
+- Chart titles: one or two short sentences ("20.8M lifetime transactions. The pace is slower."). Check that longer STE titles fit the chart width.
+- Confidence labels (Disclosed / Reported / Estimated) stay the same.
+
+**STE check before delivery**
+- Run a script that splits the text into sentences and lists every sentence with more than 25 words. Fix all prose sentences in the list.
+- Search for "which", "e.g.", "i.e.", "via", "'s", "n't", "~" and "-ing" verb forms; rewrite where they break the rules.
+- STE written this way follows the rules but is not certified. Say so to the user unless an STE checker tool was used.
+
 ## Visual rules
 - One finding per chart, stated in the title with its number; subtitle = units, source, date.
 - Grey for context, one accent for the subject; green/red only for sentiment or good/bad.
@@ -58,7 +96,7 @@ Produce one report per competitor, in a doc (or a markdown file when no doc tool
 
 ## Writing rules
 - First sentence of every section = the point, with a number or date.
-- Specifics over adjectives; sentences under 25 words; no "this section outlines".
+- Specifics over adjectives; follow the STE rules above; no "this section outlines".
 - Self-reported metrics are labelled; aggregator round labels are not treated as disclosed structure.
 - Tables for items × attributes; charts for five or more values over time or across items; prose for two or three numbers.
 - Close with one line: what the reader can do now (edit, comment, share).
@@ -69,3 +107,4 @@ Produce one report per competitor, in a doc (or a markdown file when no doc tool
 - [ ] Nine visuals present: positioning map, milestone timeline, architecture, supply + emissions, usage line, funding bars, market-cap line, sentiment, scorecard.
 - [ ] Executive summary numbers match the body.
 - [ ] Section numbering 1–15 continuous; changelog row added.
+- [ ] STE check done: no prose sentence over 25 words; active voice; approved words; chart text in STE too.
