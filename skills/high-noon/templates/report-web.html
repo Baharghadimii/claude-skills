@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REPORT TITLE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  HIGH NOON · web report template
+  Do not edit the <style> or <script> blocks. Only replace the content inside <body>.
+  Each component below has a COMPONENT comment. Copy, repeat or delete components as the content needs.
+  Mapping rules: skills/high-noon/references/markdown-to-report.md
+-->
+<style>
+:root{--ground:#fff;--ink:#1b2740;--navy:#0b1f3a;--cobalt:#1757d6;--panel:#eef4ff;--line:#d6deee;--muted:#5b6577;--caution:#b7791f;--low:#ffd166;--on-blue-line:rgba(255,255,255,.4);--sky:linear-gradient(180deg,#0f55c8 0%,#1a6fdc 45%,#3a93e8 100%);--serif:'Newsreader',Georgia,serif;--sans:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--cobalt)}a:hover{color:var(--navy)}
+p{margin:0;text-wrap:pretty}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1120px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;gap:24px}
+.wordmark{font-family:var(--serif);font-size:19px;color:var(--navy);white-space:nowrap}
+.nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font-size:13.5px;font-weight:600}
+.nav a{color:var(--muted);text-decoration:none}.nav a:hover{color:var(--cobalt)}
+.progress{height:3px;background:var(--cobalt);transform-origin:left;transform:scaleX(0)}
+.hero{position:relative;overflow:hidden;background:var(--sky);color:#fff;min-height:88vh;display:flex;align-items:center}
+.hero-in{max-width:1120px;margin:0 auto;padding:96px 32px;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px 40px;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:26px;min-width:0}
+.hero-eyebrow{font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.85}
+h1{margin:0;font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:clamp(64px,11vw,170px);line-height:.9}
+h1 em{font-style:italic;opacity:.85;font-size:.42em}
+.hero-lead{font-size:clamp(19px,2.1vw,26px);line-height:1.45;max-width:720px;opacity:.96}
+.confidence{font-size:14px;opacity:.85}
+.sky-cell{position:relative;width:100%;aspect-ratio:7/9;max-height:680px;max-width:560px;justify-self:center}
+.sky-cell svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hn-line{transition:stroke-dashoffset .5s ease,opacity .3s ease}
+.hn-star{transform-box:fill-box;transform-origin:center;transition:transform .3s ease}
+.hn-hit{cursor:pointer;pointer-events:all}
+.band{background:var(--sky);color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:96px 32px;display:flex;flex-direction:column;gap:22px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:18px}
+.band .sec-head{border-color:var(--on-blue-line)}
+h2{margin:0;font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:clamp(34px,4.6vw,58px);line-height:1;max-width:820px}
+.sec-eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.band .sec-eyebrow{color:rgba(255,255,255,.85)}
+.lead{font-size:20px;line-height:1.5;max-width:860px;font-weight:500}
+.body{font-size:17px;line-height:1.6;max-width:820px}
+h3.sub{margin:16px 0 0;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt);font-weight:700}
+.band h3.sub{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:8px 0}
+.stat{border-top:3px solid var(--ink);padding-top:12px}
+.stat .num{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:52px;line-height:1}
+.stat .cap{font-size:15px;color:var(--muted);margin-top:6px;line-height:1.4}
+.stat.key{border-color:var(--cobalt)}.stat.key .num{color:var(--cobalt)}
+.band .stat{border-color:#fff}.band .stat .cap{color:rgba(255,255,255,.85)}.band .stat.key .num{color:#fff}
+.bullets{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;max-width:860px}
+.bullets li{display:grid;grid-template-columns:14px 1fr;gap:12px}
+.bullets li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cobalt);margin-top:10px}
+.band .bullets li::before{background:#fff}
+.table-wrap{overflow-x:auto}
+.tbl{width:100%;min-width:640px;border-collapse:collapse;font-size:14.5px;line-height:1.45;border-top:2px solid var(--ink)}
+.tbl th{text-align:left;font-weight:700;padding:12px 14px 10px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+.tbl td{padding:11px 14px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td:first-child{font-weight:600}
+.tbl .note{color:var(--muted)}
+.tbl .num-col{font-variant-numeric:tabular-nums;white-space:nowrap}
+.band .tbl{border-color:#fff}.band .tbl th{border-color:#fff}.band .tbl td{border-color:var(--on-blue-line)}.band .tbl .note{color:rgba(255,255,255,.85)}
+.live{color:var(--cobalt);font-weight:700}.partial{color:var(--caution);font-weight:700}.planned{color:var(--muted);font-weight:700}
+.band .live,.band .partial,.band .planned{color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--panel);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;font-size:15.5px;line-height:1.55}
+.card.outline{background:none;border:2px solid var(--line)}
+.band .card{background:none;border:2px solid var(--on-blue-line)}
+.label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt);font-weight:700}
+.band .label{color:#fff}
+.callout{border-top:3px solid var(--cobalt);padding-top:14px;font-size:16px;line-height:1.6;max-width:860px}
+.callout b:first-child{color:var(--cobalt)}
+.band .callout{border-color:#fff}.band .callout b:first-child{color:#fff}
+.bars{display:flex;flex-direction:column;gap:10px;max-width:860px}
+.bar-row{display:grid;grid-template-columns:minmax(120px,220px) 1fr 64px;gap:14px;align-items:center;font-size:15px}
+.track{height:16px;background:var(--panel);border-radius:8px;overflow:hidden}
+.fill{height:100%;background:var(--ink);border-radius:8px;transform-origin:left}
+.bar-row .val{text-align:right;font-variant-numeric:tabular-nums}
+.bar-row.subject{font-weight:700}.bar-row.subject .fill{background:var(--cobalt)}.bar-row.subject .val{color:var(--cobalt)}
+.band .track{background:rgba(255,255,255,.18)}.band .fill{background:#fff}.band .bar-row.subject .val{color:#fff}.band .bar-row.low .fill{background:var(--low)}
+.score-avg{display:flex;align-items:baseline;gap:14px}
+.score-avg .num{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:96px;line-height:1}
+.score-avg .cap{font-size:15px;opacity:.85}
+.timeline{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.tl-item{position:relative;padding:0 0 22px 28px}
+.tl-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--ground);border:2px solid var(--cobalt);box-sizing:border-box}
+.tl-date{font-size:13px;font-weight:700;color:var(--cobalt);letter-spacing:.04em}
+.tl-text{font-size:15.5px;line-height:1.55;max-width:820px;margin-top:2px}
+.milestones{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:2px solid var(--ink)}
+.milestones>div{padding:16px 16px 16px 0;border-bottom:1px solid var(--line)}
+.milestones .yr{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:32px;color:var(--cobalt)}
+.milestones .what{font-size:15px;margin-top:4px}
+.numbered{list-style:none;margin:0;padding:0;counter-reset:n;display:flex;flex-direction:column;max-width:860px}
+.numbered li{counter-increment:n;display:grid;grid-template-columns:56px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:16px}
+.numbered li::before{content:counter(n,decimal-leading-zero);font-family:var(--serif);font-weight:300;font-size:30px;line-height:1;color:var(--cobalt)}
+.swot{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.quad{border:2px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55}
+.band .quad{border-color:var(--on-blue-line)}
+.quad-cap{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.quad-title{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:30px;line-height:1.1}
+.lae{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;align-items:start}
+.lae-col{display:flex;flex-direction:column;gap:12px}
+.lae-col.exploit{background:var(--panel);border-radius:16px;padding:20px 22px}
+.lae-title{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;font-size:34px;color:var(--cobalt)}
+.lae-col.avoid .lae-title{color:var(--muted)}
+.lae-row{border-top:1px solid var(--line);padding-top:12px;display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:15px;line-height:1.55}
+.lae-row span:first-child{color:var(--cobalt);font-weight:700}
+.figure{display:flex;flex-direction:column;gap:8px;margin:0}
+.figure img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.figure figcaption{font-size:14px;color:var(--muted)}
+.foot{border-top:1px solid var(--line)}
+.foot-in{max-width:1120px;margin:0 auto;padding:28px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.foot-in a{font-weight:600;text-decoration:none}
+@supports (animation-timeline:view()){
+  .progress{animation:hn-fill linear both;animation-timeline:scroll(root)}
+  .rise{animation:hn-rise linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
+  .fill{animation:hn-grow linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+}
+@keyframes hn-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes hn-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes hn-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:640px){.wrap{padding:64px 20px}.topbar-in{padding:12px 20px}.hero-in{padding:72px 20px}.bar-row{grid-template-columns:110px 1fr 52px}}
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}.topbar{display:none}.hero{min-height:auto}.wrap{padding:48px 32px}.card,.quad,.stat,.tl-item,tr,.lae-row{break-inside:avoid}.sec-head{break-after:avoid}}
+</style>
+</head>
+<body>
+
+<!-- COMPONENT: top bar. Wordmark = "<Report type> · <Subject>". Nav fills automatically from sections with data-nav. -->
+<header class="topbar">
+  <div class="topbar-in"><span class="wordmark">Report type · Subject</span><nav class="nav"></nav></div>
+  <div class="progress"></div>
+</header>
+
+<!-- COMPONENT: hero. Always first. Sky gradient + constellation. Do not put text in .sky-cell. -->
+<div class="hero">
+  <div class="hero-in">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Report type · 1 Jan 2026</div>
+      <h1>Subject <em>(Former name)</em></h1>
+      <p class="hero-lead">One sentence that states the main finding of the report.</p>
+      <div class="confidence">Figures from 1 Jan 2026 · Confidence labels: Disclosed · Reported · Estimated</div>
+    </div>
+    <div class="sky-cell"><svg id="hn-sky" viewBox="0 0 700 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg></div>
+  </div>
+</div>
+
+<main>
+
+<!-- COMPONENT: white section. id = short slug, data-nav = short nav label, eyebrow = "NN · Full section name". -->
+<section id="summary" data-nav="Summary">
+  <div class="wrap">
+    <div class="sec-head"><h2>Headline that states a claim.</h2><div class="sec-eyebrow">01 · Executive summary</div></div>
+    <p class="lead">Lead sentence. It gives the main point of the section in one or two short sentences.</p>
+
+    <!-- COMPONENT: stat tiles. 3–4 tiles max. Add class "key" to the single most important tile. -->
+    <div class="stats">
+      <div class="stat rise"><div class="num">20.8M</div><div class="cap">Caption that says what the number counts</div></div>
+      <div class="stat rise"><div class="num">452</div><div class="cap">Caption with the comparison point</div></div>
+      <div class="stat key rise"><div class="num">$857</div><div class="cap">The number that matters most</div></div>
+    </div>
+
+    <!-- COMPONENT: bullets. Start each item with a bold lead-in when the source has one. -->
+    <ul class="bullets">
+      <li><span><b>Lead-in.</b> One idea in each bullet. Use short sentences.</span></li>
+      <li><span><b>Lead-in.</b> Keep every fact and figure from the source.</span></li>
+    </ul>
+
+    <!-- COMPONENT: callout. For "Assessment", "Note", "What changed", blockquotes. -->
+    <div class="callout"><b>Assessment.</b> The conclusion of the section in plain words.</div>
+  </div>
+</section>
+
+<section id="detail" data-nav="Detail">
+  <div class="wrap">
+    <div class="sec-head"><h2>Another claim as a headline.</h2><div class="sec-eyebrow">02 · Section name</div></div>
+    <p class="lead">Lead sentence for this section.</p>
+    <p class="body">Body paragraph. Use one class="body" paragraph for each paragraph in the source.</p>
+
+    <!-- COMPONENT: sub-heading inside a section. -->
+    <h3 class="sub">Sub-heading · optional date or scope</h3>
+
+    <!-- COMPONENT: table. Real <table>. Add class "note" to source / note / confidence cells. Status words get live / partial / planned. -->
+    <div class="table-wrap"><table class="tbl">
+      <thead><tr><th>Item</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Row label</td><td class="num-col">1,234</td><td><span class="live">Live</span></td><td class="note">Source name</td></tr>
+        <tr><td>Row label</td><td class="num-col">567</td><td><span class="partial">Beta</span></td><td class="note">Source name</td></tr>
+        <tr><td>Row label</td><td class="num-col">—</td><td><span class="planned">Planned</span></td><td class="note">Source name</td></tr>
+      </tbody>
+    </table></div>
+
+    <!-- COMPONENT: cards. 2–6 items that each have a short name + paragraph. -->
+    <div class="cards">
+      <div class="card rise"><div class="label">Card name</div><p>Card body text, 15–16px.</p></div>
+      <div class="card rise"><div class="label">Card name</div><p>Card body text.</p></div>
+      <!-- Outline card: secondary info, gaps, unknowns. -->
+      <div class="card outline rise"><div class="label">Gaps</div><p>Information that the sources do not give.</p></div>
+    </div>
+
+    <!-- COMPONENT: bar chart. Comparisons of one number across entities. Width = value / max × 100%. Class "subject" on the report subject. -->
+    <div class="bars">
+      <div class="bar-row"><span>Entity A</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">4.5M</span></div>
+      <div class="bar-row subject"><span>Subject</span><div class="track"><div class="fill" style="width:44%"></div></div><span class="val">2.0M</span></div>
+      <div class="bar-row"><span>Entity C</span><div class="track"><div class="fill" style="width:12%"></div></div><span class="val">0.5M</span></div>
+    </div>
+
+    <!-- COMPONENT: milestones strip. 3–6 year/phase steps. -->
+    <div class="milestones">
+      <div class="rise"><div class="yr">2022</div><div class="what">Short label</div></div>
+      <div class="rise"><div class="yr">2024</div><div class="what">Short label</div></div>
+      <div class="rise"><div class="yr">2026</div><div class="what">Short label</div></div>
+    </div>
+
+    <!-- COMPONENT: timeline. Dated events, newest first unless the source orders them otherwise. -->
+    <div class="timeline">
+      <div class="tl-item rise"><div class="tl-date">Sep 2026</div><div class="tl-text">What happened.</div></div>
+      <div class="tl-item rise"><div class="tl-date">Q3 2026</div><div class="tl-text">What happened.</div></div>
+    </div>
+
+    <!-- COMPONENT: numbered list. Ordered steps, priorities, recommendations. -->
+    <ol class="numbered">
+      <li><span>First item.</span></li>
+      <li><span>Second item.</span></li>
+    </ol>
+
+    <!-- COMPONENT: figure. Only for charts or diagrams from the source. Never photos of skies or clouds. -->
+    <!-- <figure class="figure"><img src="chart.png" alt="Description"><figcaption>Caption · Source</figcaption></figure> -->
+  </div>
+</section>
+
+<!-- COMPONENT: blue feature band. Max 2 per report. Use for the key turning-point section (e.g. economics, SWOT + scorecard). -->
+<section id="swot" data-nav="SWOT" class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>Claim headline on blue.</h2><div class="sec-eyebrow">03 · SWOT</div></div>
+    <p class="lead">Lead sentence.</p>
+    <!-- COMPONENT: SWOT. Order: Strengths, Weaknesses, Opportunities, Threats. -->
+    <div class="swot">
+      <div class="quad rise"><div class="quad-cap">Internal · Helpful</div><div class="quad-title">Strengths</div><p>Text.</p></div>
+      <div class="quad rise"><div class="quad-cap">Internal · Harmful</div><div class="quad-title">Weaknesses</div><p>Text.</p></div>
+      <div class="quad rise"><div class="quad-cap">External · Helpful</div><div class="quad-title">Opportunities</div><p>Text.</p></div>
+      <div class="quad rise"><div class="quad-cap">External · Harmful</div><div class="quad-title">Threats</div><p>Text.</p></div>
+    </div>
+    <!-- COMPONENT: scorecard. Criteria scored 1–10. Width = score × 10%. Class "low" on the weakest row (yellow on blue only). -->
+    <h3 class="sub">Scorecard · 1 to 10</h3>
+    <div class="score-avg"><span class="num">5.8</span><span class="cap">average of 8 criteria</span></div>
+    <div class="bars">
+      <div class="bar-row"><span>Product</span><div class="track"><div class="fill" style="width:80%"></div></div><span class="val">8</span></div>
+      <div class="bar-row low"><span>Pricing</span><div class="track"><div class="fill" style="width:30%"></div></div><span class="val">3</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="implications" data-nav="Implications">
+  <div class="wrap">
+    <div class="sec-head"><h2>Learn. Avoid. Exploit.</h2><div class="sec-eyebrow">04 · Implications</div></div>
+    <p class="lead">Lead sentence.</p>
+    <!-- COMPONENT: learn / avoid / exploit. Three columns, numbered rows. -->
+    <div class="lae">
+      <div class="lae-col rise"><div class="lae-title">Learn from</div><div class="lae-row"><span>1</span><span>Item.</span></div><div class="lae-row"><span>2</span><span>Item.</span></div></div>
+      <div class="lae-col avoid rise"><div class="lae-title">Avoid</div><div class="lae-row"><span>1</span><span>Item.</span></div></div>
+      <div class="lae-col exploit rise"><div class="lae-title">Exploit</div><div class="lae-row"><span>1</span><span>Item.</span></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- COMPONENT: footer. Same text as the top bar + date. -->
+<footer class="foot"><div class="foot-in"><span>Report type · Subject · 1 Jan 2026</span><a href="#top" onclick="window.scrollTo({top:0});return false;">Back to top ↑</a></div></footer>
+
+<script>
+/* High Noon constellation + auto nav. Do not edit. */
+(function(){
+  var nav=document.querySelector('.nav');
+  if(nav&&!nav.children.length)document.querySelectorAll('section[data-nav]').forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.dataset.nav;nav.appendChild(a);});
+  var svg=document.getElementById('hn-sky');if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
+  var P=[[100,230],[260,310],[320,410],[390,520],[340,630],[500,750],[600,660]],L=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,3]],S=[6.5,7,6,5,5.5,6.5,7.5];
+  function el(t,a,p){var n=document.createElementNS(NS,t);for(var k in a)n.setAttribute(k,a[k]);(p||svg).appendChild(n);return n;}
+  var g=el('radialGradient',{id:'hn-glow'},el('defs',{}));
+  [[0,.85],[.35,.2],[1,0]].forEach(function(s){el('stop',{offset:s[0],'stop-color':'#fff','stop-opacity':s[1]},g);});
+  var r=5;function rand(){r=(r*9301+49297)%233280;return r/233280;}
+  for(var i=0;i<150;i++)el('circle',{cx:rand()*700,cy:rand()*900,r:rand()*1.3+.3,fill:'#fff',opacity:.25+rand()*.6});
+  function burst(x,y,s){var b=el('g',{});el('circle',{cx:x,cy:y,r:s*3,fill:'url(#hn-glow)'},b);
+    for(var k=0;k<16;k++){var a=k*Math.PI/8,len=k%4===0?s*4.2:k%2===0?s*2.4:s*1.3;el('line',{x1:x,y1:y,x2:x+Math.cos(a)*len,y2:y+Math.sin(a)*len,stroke:'#fff','stroke-width':k%4===0?1.6:k%2===0?1:.7,'stroke-linecap':'round',opacity:k%4===0?.95:k%2===0?.75:.5},b);}
+    el('circle',{cx:x,cy:y,r:s*1.6,fill:'#fff',opacity:.35},b);el('circle',{cx:x,cy:y,r:s*.9,fill:'#fff'},b);return b;}
+  for(var j=0;j<10;j++)burst(40+rand()*620,40+rand()*820,1.2+rand()*1.4);
+  var fixed=svg.getAttribute('data-lines')==='static';
+  var lines=L.map(function(e){var l=el('line',{x1:P[e[0]][0],y1:P[e[0]][1],x2:P[e[1]][0],y2:P[e[1]][1],stroke:'#fff','stroke-width':1.6,pathLength:1,'stroke-dasharray':1,'class':'hn-line'});l.style.strokeDashoffset=fixed?0:1;l.style.opacity=fixed?.7:0;return l;});
+  var stars=P.map(function(p,k){var b=burst(p[0],p[1],S[k]);b.setAttribute('class','hn-star');return b;});
+  if(fixed)return;
+  var cur=null;
+  function linked(h,k){return h===k||L.some(function(e){return(e[0]===h&&e[1]===k)||(e[1]===h&&e[0]===k);});}
+  function set(h){cur=h;lines.forEach(function(l,k){var on=h!==null&&(L[k][0]===h||L[k][1]===h);l.style.strokeDashoffset=on?0:1;l.style.opacity=on?.85:0;});stars.forEach(function(s,k){s.style.transform=h!==null&&linked(h,k)?'scale(1.25)':'';});}
+  P.forEach(function(p,k){var h=el('circle',{cx:p[0],cy:p[1],r:44,fill:'transparent','class':'hn-hit'});
+    h.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')set(k);});
+    h.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')set(null);});
+    h.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse')set(cur===k?null:k);});});
+})();
+</script>
+</body>
+</html>
